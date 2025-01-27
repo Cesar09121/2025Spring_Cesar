@@ -1,0 +1,28 @@
+{
+  "name": "suny-new-paltz-website",
+  "version": "1.0.0",
+  "description": "A modern website advertising SUNY New Paltz with a flashy design and consistent navigation.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "keywords": [
+    "SUNY",
+    "New Paltz",
+    "website",
+    "education",
+    "college"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://www.newpaltz.edu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/suny-new-paltz-website.git"
+  }
+}
