@@ -12,7 +12,7 @@
 ---
 # SUNY New Paltz Website
 
-Welcome to the SUNY New Paltz website project! This project is designed to showcase the university's offerings and provide essential information to prospective students and visitors.
+Welcome to the State University of New Paltz website project! This project is designed to showcase the university's offerings and provide essential information to prospective students and visitors.
 
 ## Project Structure
 
