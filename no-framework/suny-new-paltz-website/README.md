@@ -1,7 +1,7 @@
 # CesarLeSpring2025
 
 ## Picture
-![Image](./no-framework/images/image.png)
+![Image](./no-framework/suny-new-paltz-website/src/pages/images/image1.png)
 
 
 ## Self Introduction
