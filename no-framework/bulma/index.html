@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.3/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" rel="stylesheet">
+    
     <style>
         .section {
             color: #0c0c14;
@@ -32,7 +34,7 @@
       
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a :class="['is-active': isOpen]" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="toggleMenu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -98,7 +100,9 @@
         <div class ="container">
             <div class= "column">
                 <div class = "column">
-                    <div class ="notification">
+                    <div v-for="(message, index) in notification" :key="index" class ="notification is-primary">
+                      <button class="delete" @click="removeNotification(index)"></button>
+                        {{ message }}
                         First class level.
                     </div>
                 </div>
@@ -114,5 +118,51 @@
                 </div>
         </div>
     </section>
+
+
+  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            // Check for click events on the navbar burger icon
+            $(".navbar-burger").click(function() {
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            });
+        });
+    </script> -->
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp , ref} = Vue;
+
+        const app= createApp({
+            setup() {
+              const notification = ref([
+                'This is a primary notification #1',
+                'This is a primary notification #2',
+                'This is a primary notification #3',
+                'This is a primary notification #4',
+              ]) ;
+              const removeNotification = (index) => {
+                notification.value.splice(index, 1);
+              };
+
+              const isOpen = ref(false);
+              function toggleMenu() {
+                isOpen.value = !isOpen.value;
+              }
+              const cart = ref([]);
+              function addToCart(item) {
+                cart.value.push([name,price,quantity: 1]);
+              return { notification, removeNotification,isOpen, toggleMenu };
+            },
+        });
+
+        app.mount('body');
+        
+    </script>
+    
 </body>
 </html>
