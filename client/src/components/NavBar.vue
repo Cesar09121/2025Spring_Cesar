@@ -1,11 +1,7 @@
 <script setup lang="ts">
-
-import {ref } from 'vue'
+import { ref } from 'vue'
 
 const isActive = ref(false)
-
-
-
 
 </script>
 
@@ -16,10 +12,9 @@ const isActive = ref(false)
                 <a class="navbar-item" href="https://jewpaltz.com">
                     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="30" />
                 </a>
-               
+
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                    :class="{ 'is-active': isActive }" @click="isActive = !isActive"
-                   data-target="navbarBasicExample">
+                   :class="{ 'is-active': isActive }" @click="isActive = !isActive">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -27,11 +22,11 @@ const isActive = ref(false)
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
+            <div class="navbar-menu" :class="{ 'is-active': isActive }">
                 <div class="navbar-start">
 
 
-                    <RouterLink to="/" class="navbar-item">Home</RouterLink>                   
+                    <RouterLink to="/" class="navbar-item">Home</RouterLink>
                     <RouterLink to="/products" class="navbar-item">Products</RouterLink>
                     <RouterLink to="/about" class="navbar-item">About</RouterLink>
 
