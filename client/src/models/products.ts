@@ -2,7 +2,7 @@
  */
 
 import products from '../data/products.json'
-import type { DataListEnvelope } from '../models/dataEnvelopes'
+import type { DataListEnvelope } from './dataEnvelopes'
 
 export interface ProductDimensions {
   width: number
