@@ -51,7 +51,7 @@ export function getAll() {
 }
 
 export function getOne(id: string) {
-  return products.items.find((item) => item.id == +id) as Product
+  return (products.items as Product[]).find((item: Product) => item.id == +id) as Product
 }
 
 getAll().items.push({

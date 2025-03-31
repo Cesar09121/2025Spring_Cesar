@@ -25,6 +25,13 @@ app.listen(PORT, () => {
 console.log('Hello World!')
 
 
+
+/*
+Asynchronous partterns in Node .js
+1. Callbacks
+2. Pipelines
+3. Promises
+4. Async/Await
 /*
 Ways to send data to the server
 1. Querry parameters : ?name=John&age=30
