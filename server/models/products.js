@@ -8,39 +8,43 @@ async function getAll() {
 }
 
 async function get(id){
-    return data.item.find((item) => item.id == id)
+    const item = data.items.find((item) => item.id == id)
+    if (!item) {
+        throw new Error('Item not found', { status: 404 })
+    }
+    return item
 }
 
 async function create(item){
     const newItem = {
-        id: data.length + 1,
+        id: data.items.length + 1,
         ...item
     }
-    data.push(newItem)
+    data.items.push(newItem)
     return newItem
 }
 
 async function update(id, item){
-    const index = data.item.findIndex((item) => item.id == id)
+    const index = data.items.findIndex((item) => item.id == id)
     if (index === -1) {
         return null
     }
     const updatedItem = {
-        ...data[index],
+        ...data.items[index],
         ...item
     }
-    data[index] = updatedItem
+    data.items[index] = updatedItem
     return updatedItem
 
 }
 
 async function remove(id){
-    const index = data.item.findIndex((item) => item.id == id)
+    const index = data.items.findIndex((item) => item.id == id)
     if (index === -1) {
         return null
     }
-    const deletedItem = data[index]
-    data.splice(index, 1)
+    const deletedItem = data.items[index]
+    data.items.splice(index, 1)
     return deletedItem
 }
 
