@@ -1,14 +1,19 @@
 {
- "name": "1",
- "version": "1.0.0",
- "private": true,
- "description": "",
- "scripts": {
-  "start": "node server/index.js"
- },
- "license": "ISC",
- "dependencies": {
-  "dayjs": "1.11.13",
-  "express": "4.21.2"
- }
-}
+    "name": "1",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+  
+    "scripts": {
+      "start": "node server/index.js",
+      "dev": "nodemon server/index.js --watch server"
+    },
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.21.2",
+      "dayjs": "^1.11.13"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.9"
+    }
+  }
