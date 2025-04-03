@@ -10,14 +10,14 @@ router
         model.getAll().then((data) => {
             res.send(data)
         }).catch(next)
+        
 
     })
-    .get('/:id', (req, res, next) => {
+    .get('/:id', async (req, res, next) => {
         const { id } = req.params
 
-        model.get(id).then((data) => {
-            res.send(data)
-        }).catch(next)
+       const data = await model.get(id)
+       res.send(data)
 
     })
     .post('/', (req, res, next) => {
