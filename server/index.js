@@ -9,6 +9,8 @@ const PORT = 8000
 
 const app = express();
 
+app.use(express.json()) // Parse JSON request body
+
 // Middleware
     app.use(express.json()) // Parse JSON request body
 //controller middleware
@@ -18,6 +20,9 @@ app
     res.send('Hello New Paltz, NY!!!')
   })
   .use('/api/v1/products', productsController)
+  
+  .use('/', express.static('dist')) // Serve static files from the public directory
+  
 
 
 //error handling middleware
