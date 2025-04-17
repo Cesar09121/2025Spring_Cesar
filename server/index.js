@@ -4,27 +4,35 @@
 const express = require('express')
 const productsController = require('./controllers/products');
 const usersController = require('./controllers/users');
-const e = require('express');
+require('dotenv').config()
 
-const PORT = 8000
+const PORT = process.env.PORT ?? 8000
 
 const app = express();
 
-app.use(express.json()) // Parse JSON request body
-
 // Middleware
-    app.use(express.json()) // Parse JSON request body
-//controller middleware
+// CORS
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200)
+    }
+    next()
+  })
+    app.use(express.json())
 
+
+//Controllers
 app
-  .get('/', (req, res) => {
+  .get('/hello', (req, res) => {
     res.send('Hello New Paltz, NY!!!')
   })
   .use('/api/v1/products', productsController)
-  .use('/api/v1/users', usersController) // Use the users controller for /api/v1/users route
+  .use('/api/v1/users', usersController)
   
-  .use('/', express.static('dist')) // Serve static files from the public directory
-  
+  .use('/', express.static('dist')) 
 
 
 //error handling middleware
@@ -44,7 +52,10 @@ app.use((err, req, res, next) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`)
+    console.log(`
+      Welcome to the best class at New Paltz - ${process.env.BEST_CLASS}
+      Server running at http://localhost:${PORT}/
+    `)
 });
 
 /*

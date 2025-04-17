@@ -2,10 +2,13 @@
 
 
 ###
-http://localhost:8000/api/v1/products
+http://localhost:8000/api/v1/products?offset=5&limit=10&sort=price&order=asc
 
 ###
-GET http://localhost:8000/api/v1/products/1
+GET http://localhost:8000/api/v1/products/search/the?limit=10&sort=price&order=asc
+
+###
+GET http://localhost:8000/api/v1/products/144
 
 ###
 POST http://localhost:8000/api/v1/products
@@ -16,8 +19,8 @@ Content-Type: application/json
   "description": "This is a new product",
   "price": 100,
   "category": "electronics",
-  "image": "https://example.com/image.jpg",
-  "stock": 50
+  "stock": 50,
+  "thumbnail": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-1000x667,f_auto,q_auto:best/rockcms/2025-04/250403-donald-trump-se-1026a-c954d5.jpg"
 }
 
 ###
@@ -31,6 +34,9 @@ Content-Type: application/json
 ###
 DELETE http://localhost:8000/api/v1/products/1
 
+
+###
+POST http://localhost:8000/api/v1/products/seed
 
 ########################
 # Users Controller

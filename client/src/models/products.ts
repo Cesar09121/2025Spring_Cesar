@@ -3,6 +3,7 @@
 
 import products from '../data/products.json'
 import type { DataListEnvelope } from './dataEnvelopes'
+import { api } from './myFetch'
 
 export interface ProductDimensions {
   width: number
@@ -45,19 +46,12 @@ export interface Product {
   images?: string[]
   thumbnail?: string
 }
-
-export function getAll() {
-  return products as DataListEnvelope<Product>
+export function getAll(){
+  return api<DataListEnvelope<Product>>('products')
 }
+
 
 export function getOne(id: string) {
-  return (products.items as Product[]).find((item: Product) => item.id == +id) as Product
+  return api<Product>(`products/${id}`)
 }
 
-getAll().items.push({
-  id: 100,
-  title: 'Test Product',
-  description: 'This is a test product',
-  category: 'test',
-  price: 100,
-})
